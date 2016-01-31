@@ -4,11 +4,12 @@ class window.Hand extends Backbone.Collection
   initialize: (array, @deck, @isDealer) ->
 
   hit: ->
+    #invoke bust every hit
     @add(@deck.pop())
+    @bust()
 
   stand: ->
     @trigger('stand', @)
-    console.log('stand')
 
   hasAce: -> @reduce (memo, card) ->
     memo or card.get('value') is 1
@@ -43,5 +44,6 @@ class window.Hand extends Backbone.Collection
     while @scores()[0] < 17 then @hit()
     @trigger('dealerHit',@)
 
-
+  bust: ->
+    if @scores()[0] > 21 then @trigger('bust', @)
 
