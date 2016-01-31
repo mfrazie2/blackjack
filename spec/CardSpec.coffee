@@ -9,8 +9,6 @@ describe 'card', ->
   
   beforeEach ->
     deck = new Deck()
-    # hand = deck.dealPlayer()
-    # dealer = deck.dealDealer()
 
   describe "deck constructor", ->
     it "should create a card collection", ->
@@ -19,8 +17,6 @@ describe 'card', ->
     it "dealerHits should be a function", ->
       dealer = deck.dealDealer()
       expect(dealer.dealerHits).to.be.a('function')
-
-    #it "should trigger bust event"
 
   describe 'card model', ->
       it 'should be an object', ->

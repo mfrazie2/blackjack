@@ -9,6 +9,7 @@ class window.App extends Backbone.Model
     @get('dealerHand').on 'dealerHit', => @getWinner()
     @get('playerHand').on 'bust', -> alert('Dealer Wins!')
     @get('dealerHand').on 'bust', -> alert('Player Wins!')
+  
   getWinner: ->  
     playerScore = @get('playerHand').getScore()
     dealerScore = @get('dealerHand').getScore()
@@ -18,12 +19,3 @@ class window.App extends Backbone.Model
 
 
 
-    #  console.log('CoffeeScript')
-    # @get('playerHand').getScore()
-    #
-    
-  # tabulate playerScore
-  # tabulate dealerScore
-  # if dealerScore< 17, hit()
-    # if dealerScore >= 17, do nothing
-  # compare scores and alert winner
